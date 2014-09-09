@@ -6,17 +6,23 @@
 
 package interfaz;
 
+import dominio.AdminAdministrativa;
+import dominio.Estudiante;
+
 /**
  *
  * @author alumnoFI
  */
 public class frmEstudiantes extends javax.swing.JFrame {
+    AdminAdministrativa admin;
 
-    /**
-     * Creates new form frmEstudiantes
-     */
     public frmEstudiantes() {
         initComponents();
+    }
+    
+    public frmEstudiantes(AdminAdministrativa admin) {
+        initComponents();
+        this.admin = admin;
     }
 
     /**
@@ -49,6 +55,11 @@ public class frmEstudiantes extends javax.swing.JFrame {
         lblMail.setText("Mail");
 
         btnAlta.setText("Confirmar");
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +108,14 @@ public class frmEstudiantes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+        try{
+            Estudiante unEstudiante = new Estudiante(Integer.parseInt(this.txtNum.getText()),
+                    this.txtNom.getText(), this.txtMail.getText());
+            
+        }
+    }//GEN-LAST:event_btnAltaActionPerformed
 
     /**
      * @param args the command line arguments

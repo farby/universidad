@@ -1,6 +1,6 @@
 package dominio;
 
-class Estudiante {
+public class Estudiante {
     int numero;
     String nombre;
     String mail;
