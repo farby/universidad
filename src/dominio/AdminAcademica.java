@@ -14,4 +14,26 @@ public class AdminAcademica {
         }
         return fijado;
     }
+    
+    public boolean existeExamen(Examen unExamen){
+        boolean existe = false;
+        int i = 0;
+        while(!existe && i < this.examenes.size()){
+            if(this.examenes.get(i).getFecha().equals(unExamen.getFecha())){
+                existe = true;
+            }
+            i++;
+        }
+        return existe;
+    }
+        
+    public boolean altaEstudianteExamen(
+            Estudiante unEstudiante, Materia unaMeteria, Examen unExamen){
+        boolean alta = false;
+        if(this.admin.estaInscripto(unEstudiante, unaMeteria)
+                && this.existeExamen(unExamen)){
+            unExamen.getActa().put(unEstudiante, -1);
+        }
+        return alta;
+    }
 }

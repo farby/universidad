@@ -28,6 +28,19 @@ public class AdminAdministrativa {
         return matriculado;
     }
     
+    public boolean estaInscripto(Estudiante unEstudiante, Materia unaMateria){
+        boolean inscripto = false;
+        if(this.existeEstudiante(unEstudiante) && this.existeMateria(unaMateria)){
+            int i = 0;
+            while(!inscripto && i < unaMateria.getEstudiantes().size()){
+                if(unaMateria.getEstudiantes().get(i).equals(unEstudiante)){
+                    inscripto = true;
+                }
+            }
+        }
+        return inscripto;
+    }
+    
     public boolean existeMateria(Materia unaMateria){
         boolean existe = false;
         int i = 0;
@@ -53,7 +66,6 @@ public class AdminAdministrativa {
         }
         return sinDoc;
     }
-    
     
     public Materia buscarMateria(Materia unaMateria){
         boolean encontrada = false;
